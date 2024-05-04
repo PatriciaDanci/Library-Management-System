@@ -1,0 +1,58 @@
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+--
+-- Host: localhost    Database: library
+-- ------------------------------------------------------
+-- Server version	8.0.35
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `checkout`
+--
+
+DROP TABLE IF EXISTS `checkout`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `checkout` (
+  `checkout_id` int NOT NULL,
+  `student_id` int DEFAULT NULL,
+  `copy_id` int DEFAULT NULL,
+  `checkout_date` date DEFAULT NULL,
+  `return_date` date DEFAULT NULL,
+  PRIMARY KEY (`checkout_id`),
+  KEY `student_id` (`student_id`),
+  KEY `copy_id` (`copy_id`),
+  CONSTRAINT `checkout_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`student_id`),
+  CONSTRAINT `checkout_ibfk_2` FOREIGN KEY (`copy_id`) REFERENCES `bookcopy` (`copy_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkout`
+--
+
+LOCK TABLES `checkout` WRITE;
+/*!40000 ALTER TABLE `checkout` DISABLE KEYS */;
+INSERT INTO `checkout` VALUES (1,1,6,'2023-12-15','2024-01-15'),(2,4,7,'2023-12-15','2024-01-15'),(3,10,16,'2023-12-15','2024-01-15'),(4,26,20,'2023-12-16','2024-01-16'),(5,26,21,'2023-12-16','2024-01-16'),(6,2,28,'2023-12-17','2024-01-17'),(7,9,29,'2023-12-17','2024-01-17'),(8,24,37,'2023-12-17','2024-01-17'),(9,14,38,'2023-12-21','2024-01-21'),(10,15,39,'2023-12-21','2024-01-21'),(11,7,44,'2023-12-21','2024-01-21'),(12,16,45,'2023-12-21','2024-01-21'),(13,28,63,'2023-12-23','2024-01-23'),(14,19,64,'2023-12-23','2024-01-23'),(15,13,65,'2023-12-24','2024-01-24'),(16,25,71,'2023-12-29','2024-01-29'),(17,27,72,'2023-12-30','2024-01-30'),(18,8,73,'2024-01-06','2024-02-06'),(19,21,77,'2024-01-06','2024-02-06'),(20,3,78,'2024-01-06','2024-02-06'),(21,11,79,'2024-01-06','2024-02-06'),(22,12,80,'2024-01-06','2024-02-06'),(23,30,81,'2024-01-06','2024-02-06'),(24,23,82,'2024-01-06','2024-02-06'),(25,1,74,'2024-01-11','2024-02-11');
+/*!40000 ALTER TABLE `checkout` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-01-15  3:25:30
